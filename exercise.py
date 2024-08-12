@@ -1,3 +1,5 @@
+import random
+
 # Exercise 0: Example
 #
 # This is a practice exercise to help you understand how to write code "inside" a provided Python function.
@@ -38,7 +40,7 @@ print_greeting()
 # - Ensure to provide feedback for non-alphabetical or invalid entries.
 
 def check_letter():
-    letter = input('please input a letter A-Z or a-z').lower()
+    letter = input('please input a letter A-Z or a-z').lower().strip()
     if letter in 'aeiou':
         print(f'The letter {letter} is a vowel')
     else:
@@ -128,8 +130,8 @@ calculate_dog_years()
 # - Use logical operators (`AND`, `OR`, `NOT`) in your if statements to handle multiple conditions.
 
 def weather_advice():
-    cold = input('Is it cold: (yes/no)')
-    raining = input('Is it raning: (yes/no)')
+    cold = input('Is it cold: (yes/no)').strip()
+    raining = input('Is it raning: (yes/no)').strip()
 
     if cold == 'yes' and raining == 'yes':
         print('Wear a waterproof coat.')
@@ -167,7 +169,7 @@ weather_advice()
 def determine_season():
     months = ('jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec')
 
-    month = input('Enter the month of the year (Jan - Dec): ').lower()
+    month = input('Enter the month of the year (Jan - Dec): ').lower().strip()
     day = int(input('Enter the day of the Month: '))
     if month in months:
         if (month == 'dec' and day >= 21) or (month == 'mar' and day <= 19) or (month =='jan' or month == 'feb'):
@@ -183,3 +185,52 @@ def determine_season():
 
 # Call the function
 determine_season()
+
+
+# Exercise 7: Number Guessing Game
+#
+# Write a Python function named `guess_number` that allows a user to guess a predetermined number within a range.
+#
+# Requirements:
+# - Set a fixed number as the target for guessing (e.g., 42).
+# - Prompt the user to guess a number within a range (e.g., 1 to 100).
+# - Allow the user to guess up to five times.
+# - After each guess, use conditional statements with AND, OR, and NOT to give the user hints like:
+#   - "Guess is too low" or "Guess is too high."
+#   - "Last chance!" when they are on their fifth guess.
+# - Print "Congratulations, you guessed correctly!" if they guess the number.
+# - Print "Sorry, you failed to guess the number in five attempts." if they do not succeed.
+#
+# Hints:
+# - Use a for loop with a range to limit guesses to five.
+# - Use logical AND, OR, and NOT to check conditions and provide appropriate feedback.
+
+def guess_number():
+    randon_number = random.randrange(1, 100)
+
+    print("Guess the number between 1 and 100. You have 5 attempts.")
+    
+    for attempt in range(1, 6):
+        guess = int(input(f"Attempt {attempt}: Enter your guess: "))
+
+        if guess == randon_number:
+            print("Congratulations, you guessed correctly!")
+            break
+        elif guess < randon_number:
+            print("Your guess is too low.")
+        else:
+            print("Your guess is too high.")
+
+        if attempt == 4:
+            print("Last chance!")
+
+        if attempt == 5:
+            print("Sorry, you failed to guess the number in five attempts.")
+            print(f"The correct number was {randon_number}.")
+            break  
+
+
+        
+
+# Call the function
+guess_number()
