@@ -165,17 +165,21 @@ weather_advice()
 # - Ensure to validate input formats and handle unexpected inputs gracefully.
 
 def determine_season():
+    months = ('jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec')
+
     month = input('Enter the month of the year (Jan - Dec): ').lower()
     day = int(input('Enter the day of the Month: '))
-
-    if (month == 'dec' and day >= 21) or (month == 'mar' and day <= 19) or (month =='jan' or month == 'feb'):
-        print(f'{month}, {day} is in Winter')
-    elif (month == 'mar' and day >= 20) or (month == 'jun' and day <= 20) or (month =='apr' or month == 'may'):
-        print(f'{month}, {day} is in Spring')
-    elif (month == 'jun' and day >= 21) or (month == 'sep' and day <= 21) or (month =='jul' or month == 'aug'):
-        print(f'{month}, {day} is in Summer')
-    elif (month == 'sep' and day >= 22) or (month == 'dec' and day <= 20) or (month =='oct' or month == 'nov'):
-        print(f'{month}, {day} is in Fall')  
+    if month in months:
+        if (month == 'dec' and day >= 21) or (month == 'mar' and day <= 19) or (month =='jan' or month == 'feb'):
+            print(f'{month}, {day} is in Winter')
+        elif (month == 'mar' and day >= 20) or (month == 'jun' and day <= 20) or (month =='apr' or month == 'may'):
+            print(f'{month}, {day} is in Spring')
+        elif (month == 'jun' and day >= 21) or (month == 'sep' and day <= 21) or (month =='jul' or month == 'aug'):
+            print(f'{month}, {day} is in Summer')
+        elif (month == 'sep' and day >= 22) or (month == 'dec' and day <= 20) or (month =='oct' or month == 'nov'):
+            print(f'{month}, {day} is in Fall') 
+    else:
+        print('please input a correct month, using the first 3 letters') 
 
 # Call the function
 determine_season()
