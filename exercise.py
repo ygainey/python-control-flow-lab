@@ -206,7 +206,7 @@ determine_season()
 # - Use logical AND, OR, and NOT to check conditions and provide appropriate feedback.
 
 def guess_number():
-    randon_number = random.randrange(1, 100)
+    randon_number = random.randint(1, 100)
 
     print("Guess the number between 1 and 100. You have 5 attempts.")
     
